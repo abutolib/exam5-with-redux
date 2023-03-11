@@ -1,0 +1,21 @@
+.services-title {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 27px;
+  /* identical to box height */
+
+
+  color: #1D1D1F;
+}
+
+.services-link {
+  text-decoration: none;
+}
+
+.services-text {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  color: #1D1D1F;
+  opacity: 0.75;
+}

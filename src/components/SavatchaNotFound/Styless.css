@@ -1,0 +1,6 @@
+.savatcha-not{
+  padding: 130px 0 328px;
+  background-image: url('../../assets/images/image.svg');
+  background-repeat: no-repeat;
+  background-position: calc(50% + 250px);
+}
