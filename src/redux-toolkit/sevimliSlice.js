@@ -139,7 +139,7 @@ const sevimliSlise = createSlice({
     },
 
     search: (state, action) => {
-      const searchedProduct = state.products2.filter((item => {
+      const searchedProduct = state.products.filter((item => {
         return item.name.toLowerCase().includes(action.payload)
       }))
       state.products = [...searchedProduct]
