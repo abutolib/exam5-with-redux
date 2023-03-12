@@ -1,13 +1,15 @@
 import React, { useRef } from 'react'
-import { Link, NavLink, Outlet } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import { Link, NavLink} from 'react-router-dom'
 import { Savat } from '../../assets/icons/icons'
-import Heart from '../../assets/images/heart.svg'
 import redHeart from '../../assets/images/red-heart.svg'
 import { NavbarTop } from '../NavbarTop/NavbarTop'
 
 import './Header.css'
 
-export const Header = ({ backImg }) => {
+export const Header = () => {
+
+  const {korzinka} = useSelector(state => state.korzinka)
 
   const navRef = useRef()
 
@@ -27,7 +29,7 @@ export const Header = ({ backImg }) => {
       <header className='site-header'>
         <div className='container'>
           <div className='site-header__inner'>
-            <Link className='site-logo' to='boshsahifa'>LOGO</Link>
+            <Link className='site-logo' to='/'>LOGO</Link>
             <ul className='d-flex align-items-center list-unstyled'
               style={{ listStyleType: 'none', gap: '26px', margin: "0", marginLeft: "111px" }}  >
               <li>
@@ -61,6 +63,11 @@ export const Header = ({ backImg }) => {
                 }>
                   <div className='d-block mx-1' style={{ marginTop: '2px' }} >
                     <Savat />
+                    {
+                      korzinka.length 
+                      ? <span className='korzinka-soni'>{korzinka.length}</span>
+                      : ""
+                    }
                   </div>
                 </NavLink>
               </li>

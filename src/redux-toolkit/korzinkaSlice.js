@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import QizilYurak from '../assets/images/qizil-yurak.svg'
 import RohatYog from "../assets/images/rohat-yog'.png"
 import RohatSirop from "../assets/images/rohat-sirop.png"
 import Rastraposha from "../assets/images/rastraposha.png"
@@ -14,6 +13,7 @@ const korzinkaSlice = createSlice({
   initialState:
   {
     korzinka: [],
+    questions:[],
     products: [
       {
         id: 1,
@@ -104,11 +104,14 @@ const korzinkaSlice = createSlice({
         findedItem2.quantity -= 1
       }
     },
+    handleAddQuestions :(state,action) => {
+      state.questions = [...state.questions,action.payload]
+    }
 
 
   }
 });
 
 
-export const { handleAddKorzinka, handleDeleteKorzinka, handleIncrement, handleDecrement, } = korzinkaSlice.actions;
+export const { handleAddKorzinka, handleDeleteKorzinka, handleIncrement, handleDecrement,handleAddQuestions } = korzinkaSlice.actions;
 export default korzinkaSlice.reducer;

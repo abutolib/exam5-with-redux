@@ -1,21 +1,19 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Product } from '../../components/Product/Product'
+import { all, asal, choy, lolipoplar, non, search, sharbatlar, tabletkalar, yog, ziravorlar } from '../../redux-toolkit/sevimliSlice'
 
 import './mahsulotlar.css'
 
 export const Mahsulotlar = () => {
 
+
+  const name = useRef()
+
   const { products } = useSelector(state => state.sevimli)
   const { sevimli } = useSelector(state => state.sevimli)
 
-  console.log(products);
-  console.log(sevimli);
-
-  
-
   const dispatch = useDispatch()
-
 
   return (
     <>
@@ -23,7 +21,7 @@ export const Mahsulotlar = () => {
         <div className='d-flex align-items-center justify-content-between'>
           <h2 className='my-4'>Mahsulotlar</h2>
           <label className='search-label'>
-            <input className='search-input' type="text" placeholder='Qidirish' />
+            <input ref={name} className='search-input' type="text" placeholder='Qidirish' onInput={(e)=>dispatch(search(e.target.value))} />
           </label>
         </div>
         <div className='d-flex align-items-start gap-4'>
@@ -33,42 +31,42 @@ export const Mahsulotlar = () => {
               <p>Tozalash</p>
             </div>
             <form>
-              <div className='d-flex gap-2'>
-                <input type='checkbox' />
+              <label className='d-flex gap-2'>
+                <input type='radio' name='category' id='1'   onClick={() => dispatch(all())}   />
                 Hammasi
-              </div>
-              <div className='d-flex gap-2'>
-                <input type='checkbox' />
+              </label>
+              <label className='d-flex gap-2'>
+                <input type='radio' name='category' id='2' onClick={() => dispatch(choy())}/>
                 Choy
-              </div>
-              <div className='d-flex gap-2'>
-                <input type='checkbox' />
+              </label>
+              <label className='d-flex gap-2'>
+                <input type='radio' name='category' id='3' onClick={() => dispatch(asal())} />
                 Asal
-              </div>
-              <div className='d-flex gap-2'>
-                <input type='checkbox' />
+              </label>
+              <label className='d-flex gap-2'>
+                <input type='radio' name='category' id='4' onClick={() => dispatch(yog())} />
                 Yog’
-              </div>
-              <div className='d-flex gap-2'>
-                <input type='checkbox' />
+              </label>
+              <label className='d-flex gap-2'>
+                <input type='radio' name='category' id='5' onClick={() => dispatch(non())}/>
                 Non
-              </div>
-              <div className='d-flex gap-2'>
-                <input type='checkbox' />
+              </label>
+              <label className='d-flex gap-2'>
+                <input type='radio' name='category' id='6' onClick={() => dispatch(ziravorlar())} />
                 Ziravorlar
-              </div>
-              <div className='d-flex gap-2'>
-                <input type='checkbox' />
+              </label>
+              <label className='d-flex gap-2'>
+                <input type='radio' name='category' id='7' onClick={() => dispatch(sharbatlar())} />
                 Sharbatlar
-              </div>
-              <div className='d-flex gap-2'>
-                <input type='checkbox' />
+              </label>
+              <label className='d-flex gap-2'>
+                <input type='radio' name='category' id='8' onClick={() => dispatch(lolipoplar())}/>
                 Lolipoplar
-              </div>
-              <div className='d-flex gap-2'>
-                <input type='checkbox' />
+              </label>
+              <label className='d-flex gap-2'>
+                <input type='radio' name='category' id='9' onClick={() => dispatch(tabletkalar())} />
                 Tabletkalar
-              </div>
+              </label>
             </form>
           </div>
           {

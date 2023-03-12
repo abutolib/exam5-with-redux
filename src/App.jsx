@@ -7,10 +7,7 @@ import { handleSetUser } from "./redux-toolkit/userSlice"
 
 function App() {
 
-  const { token } = useSelector(state => state.token)
-  const dispatch = useDispatch()
-  dispatch(handleSetToken(localStorage.getItem("token") || ""))
-  dispatch(handleSetUser(localStorage.getItem("user") || ""))
+  const token = JSON.parse(localStorage.getItem("token")) || ""
 
 
   if (token) {

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useRef } from 'react'
 import './Home.css'
 import Doctor from '../../assets/images/doctor1.jpg'
 import { Tolov, Track, Chegirma, Naushnik } from '../../assets/icons/icons'
@@ -16,12 +16,39 @@ import Logo4 from '../../assets/images/logo4.svg'
 import Logo5 from '../../assets/images/logo5.svg'
 import { ProductsContext } from '../../context/Products/Products'
 import { useDispatch, useSelector } from 'react-redux'
+import { handleAddQuestions } from '../../redux-toolkit/korzinkaSlice'
 export const Home = () => {
 
   let k = 0;
-  const {products} = useSelector(state => state.sevimli)
+  const { products } = useSelector(state => state.sevimli)
+  const { questions } = useSelector(state => state.korzinka)
+
+  console.log(questions);
+
+  const nameRef = useRef()
+  const emailRef = useRef()
+  const telRef = useRef()
+  const textRef = useRef()
 
   const dispatch = useDispatch()
+
+  const myFunction = (evt) => {
+    evt.preventDefault()
+    const values = {
+      user_name: nameRef.current.value,
+      user_email: emailRef.current.value,
+      user_tel: telRef.current.value,
+      user_text: textRef.current.value,
+    }
+
+    dispatch(handleAddQuestions(values))
+
+    nameRef.current.value=""
+    emailRef.current.value=""
+    telRef.current.value=""
+    textRef.current.value=""
+
+  }
 
   return (
     <main>
@@ -91,11 +118,11 @@ export const Home = () => {
           <h2 className='our-products__title'>Mahsulotlarimiz <br /> ro'yxati</h2>
 
           {
-            products.length ? <ul className='d-flex gap  list-unstyled m-0  wrapp'> {products.map(item => 
-            <Product isLiked={item.isLiked}  key={item.id} id={item.id} src={item.img} name={item.name} type={item.type} oldPrice={item.oldPrice} price ={item.price}/>)} </ul> : ""
+            products.length ? <ul className='d-flex gap  list-unstyled m-0  wrapp'> {products.map(item =>
+              <Product isLiked={item.isLiked} key={item.id} id={item.id} src={item.img} name={item.name} type={item.type} oldPrice={item.oldPrice} price={item.price} />)} </ul> : ""
           }
 
-          <Link style={{color: "#181725"}} className='to-mahsulotlar-btn' to='mahsulotlar' >Barcha mahsulotlarni ko’rish →</Link>
+          <Link style={{ color: "#181725" }} className='to-mahsulotlar-btn' to='mahsulotlar' >Barcha mahsulotlarni ko’rish →</Link>
 
         </div>
       </section>
@@ -123,22 +150,22 @@ export const Home = () => {
       </section>
       <section className='site-form'>
         <div className="container">
-          <div className="site-form__inner">
+          <div  className="site-form__inner">
             <span style={{ color: "#53B175" }}>Biz bilan bog'lanish</span>
             <h2 className='site-form__title'>So'rovingizni yuboring</h2>
-            <form className='site-forms'>
-              <input className='form-name-input' type="text" placeholder='Ismingizni kiriting...' />
-              <input className='form-name-input' type="email" placeholder='Emailingizni kiriting...' />
+            <form onSubmit={myFunction} className='site-forms'>
+              <input ref={nameRef} className='form-name-input' type="text" placeholder='Ismingizni kiriting...' />
+              <input ref={emailRef} className='form-name-input' type="email" placeholder='Emailingizni kiriting...' />
               <label className='form-tel-label' >
                 Telefon raqam
                 <div>
                   <img src={uzbFlag} />
                   <p className='d-inline-block nomer'>+998</p>
-                  <input className='form-tel-input' type='number' defaultValue='+998' />
+                  <input ref={telRef} className='form-tel-input' type='number' defaultValue='+998' />
                 </div>
               </label>
-              <input type="text" className='form-name-input' />
-              <button type='submit' className='form-btn'>Xabar yuborish</button>
+              <input ref={textRef} type="text" className='form-name-input' />
+              <button  type='submit' className='form-btn'>Xabar yuborish</button>
             </form>
           </div>
         </div>

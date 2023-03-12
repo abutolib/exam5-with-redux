@@ -1,12 +1,14 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch} from 'react-redux'
 import './Product.css'
 import KulrangHeart from '../../assets/images/kulrang-heart.png'
 import QizilYurak from '../../assets/images/qizil-yurak.svg'
 import { PlusBtn } from '../../assets/icons/icons'
 import { Example } from '../ModalBox/ModalBox'
 import {  handleAddKorzinka } from '../../redux-toolkit/korzinkaSlice'
-import { changeHeartColor, handleAddSevimli, handleDeleteSevimli } from '../../redux-toolkit/sevimliSlice'
+import { changeHeartColor, handleAddSevimli } from '../../redux-toolkit/sevimliSlice'
+
+
 export const Product = ({quantity,isLiked, id, src, name, type, oldPrice, price }) => {
 
   const dispatch = useDispatch()
@@ -14,6 +16,7 @@ export const Product = ({quantity,isLiked, id, src, name, type, oldPrice, price 
   const changeHeart = (id) => {
     dispatch(changeHeartColor({ id: id }))
   }
+
 
   const myFunction = (id) => {
     dispatch(handleAddSevimli({ id: id }));

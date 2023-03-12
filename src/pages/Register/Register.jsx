@@ -4,9 +4,6 @@ import kozbtn from '../../assets/images/kozbtn.svg'
 import { ExitBtn } from '../../assets/icons/icons'
 import {  useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { api } from '../../Api/api'
-import { handleSetToken } from '../../redux-toolkit/tokenSlice'
-import { handleSetUser } from '../../redux-toolkit/userSlice'
 
 export const Register = () => {
 
@@ -14,19 +11,7 @@ export const Register = () => {
   const userRef = useRef()
   const passwordRef = useRef()
 
-  const dispatch = useDispatch()
   const navigate = useNavigate()
-
-  const userRegister = async (user ) => {
-    const data = await api.userRegister(user)
-    if(data.status === 201){
-      localStorage.setItem('token',data.data.accessToken)
-      localStorage.setItem('user',JSON.stringify(data.data.user))
-      dispatch(handleSetToken(data.data.accessToken))
-      dispatch(handleSetUser(data.data.user))
-      navigate('/')
-    }
-  }
 
   const handleSubmit =(evt) => {
     evt.preventDefault()
@@ -36,7 +21,11 @@ export const Register = () => {
       password:passwordRef.current.value
     }
 
-    userRegister(values)
+    localStorage.setItem('token',JSON.stringify(values))
+
+    navigate('/')
+    location.reload()
+
 
   }
 

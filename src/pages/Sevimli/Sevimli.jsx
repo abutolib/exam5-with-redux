@@ -1,15 +1,11 @@
-import React, { useEffect } from 'react'
-import { SevimliItem } from '../../components/SevimliItem/SevimliItem'
-import Rastraposha from '../../assets/images/rastraposha.png'
+import React from 'react'
 import DeleteBtn from '../../assets/images/delte-btn.svg'
 import { useDispatch, useSelector } from 'react-redux'
-import { api } from '../../Api/api'
-import { setSevimli } from '../../redux/sevimli/sevimliAction'
 import { SavatchaNotFound } from '../../components/SavatchaNotFound/SavatchaNotFound'
 import { PlusBtn } from '../../assets/icons/icons'
-import { handleAddSevimli, handleDeleteSevimli, sortedIsLiked } from '../../redux-toolkit/sevimliSlice'
+import { handleDeleteSevimli, sortedIsLiked } from '../../redux-toolkit/sevimliSlice'
 import { handleAddKorzinka } from '../../redux-toolkit/korzinkaSlice'
-
+import './Sevimli.css'
 
 export const Sevimli = () => {
 
@@ -32,12 +28,12 @@ export const Sevimli = () => {
 
       {
         sevimli.length > 0
-          ? <ul>
+          ? <ul className='m-0 list-unstyled w-100'>
             {filteredArray.length ?
               filteredArray.map(item =>
 
-                <li key={item.id} className='d-flex align-items-center justify-content-between savatcha-card mb-3'>
-                  <img src={item.img} width={100} height={100} />
+                <li key={item.id}  className='d-flex align-items-center justify-content-between savatcha-cardsss  mb-3 ' >
+                  <img src={item.img}  height={100} />
                   <div>
                     <p className='medicine-name'>{item.name}</p>
                     <p className='m-0'>{item.type}</p>
