@@ -3,10 +3,28 @@ import './Login.css'
 import uzbflag from '../../assets/images/uzbflag.svg'
 import kozbtn from '../../assets/images/kozbtn.svg'
 import { ExitBtn } from '../../assets/icons/icons'
+import { Link, useNavigate } from 'react-router-dom'
 
 export const Login = () => {
 
+  const telRef = useRef()
   const passwordRef = useRef()
+
+  const navigate = useNavigate()
+
+  const handleSubmit =(evt) => {
+    evt.preventDefault()
+    const values = {
+      user_tel:telRef.current.value,
+      password:passwordRef.current.value
+    }
+
+    localStorage.setItem('token',JSON.stringify(values))
+
+    navigate('/')
+    location.reload()
+  }
+
 
   const handleOpen = () => {
     if (passwordRef.current.type == 'password') {
@@ -24,17 +42,17 @@ export const Login = () => {
       </button>
       <ul className='following-list'>
         <li className='following-item'>
-          Kirish
+          <Link to='/register' style={{textDecoration:'none',color: "#53B175"}} >Kirish</Link>
         </li>
       </ul>
-      <form className='login-form'>
+      <form onSubmit={handleSubmit} className='login-form'>
         <label className='login-label'>
           Telefon raqam
           <div style={{ marginTop: '10px' }}>
             <img src={uzbflag} />
             <div className='d-flex align-items-center'>
               <p className='nomer m-0'>+998</p>
-              <input className='tel-input' type='tel' />
+              <input ref={telRef} className='tel-input' type='tel' />
             </div>
           </div>
         </label>

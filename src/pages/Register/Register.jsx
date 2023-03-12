@@ -3,7 +3,7 @@ import '../Login/Login.css'
 import kozbtn from '../../assets/images/kozbtn.svg'
 import { ExitBtn } from '../../assets/icons/icons'
 import {  useDispatch } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 export const Register = () => {
 
@@ -45,7 +45,7 @@ export const Register = () => {
       </button>
       <ul className='following-list'>
         <li className='following-item2'>
-          Ro'yhatdan o'tish
+          <Link to='/login' style={{textDecoration:'none',color: "#53B175"}}>Ro'yhatdan o'tish</Link>
         </li>
       </ul>
       <form className='login-form'>
