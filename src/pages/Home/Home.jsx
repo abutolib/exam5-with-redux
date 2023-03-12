@@ -22,6 +22,7 @@ export const Home = () => {
   let k = 0;
   const { products } = useSelector(state => state.sevimli)
   const { questions } = useSelector(state => state.korzinka)
+  const id = questions.length + 1
 
   console.log(questions);
 
@@ -35,10 +36,12 @@ export const Home = () => {
   const myFunction = (evt) => {
     evt.preventDefault()
     const values = {
+      id:id,
       user_name: nameRef.current.value,
       user_email: emailRef.current.value,
       user_tel: telRef.current.value,
-      user_text: textRef.current.value,
+      question: textRef.current.value,
+      answer:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
     }
 
     dispatch(handleAddQuestions(values))

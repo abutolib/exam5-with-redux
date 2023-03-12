@@ -13,7 +13,35 @@ const korzinkaSlice = createSlice({
   initialState:
   {
     korzinka: [],
-    questions:[],
+    questions:[
+      {
+        id:1,
+        question:"Какой состав сока Alatoo?",
+        answer:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad inim veniam, quis nostrud exercitation ullamco laboris nisi u aliquip ex ea commodo consequat"
+      },
+      {
+        id:2,
+        question:"Сколько стоит Алатоо и сколько стоит доставка?",
+        answer:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad inim veniam, quis nostrud exercitation ullamco laboris nisi u aliquip ex ea commodo consequat"
+      },
+      {
+        id:3,
+        question:"Здравствуйте, аллергия часто на этот сок?",
+        answer:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad inim veniam, quis nostrud exercitation ullamco laboris nisi u aliquip ex ea commodo consequat"
+      },
+      {
+        id:4,
+        question:"Эффективен ли сок Алатоо при часто рецидивирующем герпесе?",
+        answer:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad inim veniam, quis nostrud exercitation ullamco laboris nisi u aliquip ex ea commodo consequat"
+      },
+      {
+        id:5,
+        question:"Здравствуйте, можно ли принимать при полипе в жёлчном пузыре?",
+        answer:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad inim veniam, quis nostrud exercitation ullamco laboris nisi u aliquip ex ea commodo consequat"
+      },
+      
+      
+    ],
     products: [
       {
         id: 1,

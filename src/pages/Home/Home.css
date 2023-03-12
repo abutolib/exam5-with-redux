@@ -31,6 +31,9 @@
 
 .doctor-img-wrapper {
   position: relative;
+  background-image: url('../../assets/images/tel.png'),url('../../assets/images/sms.svg');
+  background-repeat: no-repeat;
+  background-position: calc(50% + 600px),calc(50% + 600px) 260px;
 }
 
 .doctor-img {
