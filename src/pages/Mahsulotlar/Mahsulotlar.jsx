@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Product } from '../../components/Product/Product'
-import { all, asal, choy, lolipoplar, non, search, sharbatlar, sorted, tabletkalar, yog, ziravorlar } from '../../redux-toolkit/sevimliSlice'
+import { all,  search,  } from '../../redux-toolkit/sevimliSlice'
 
 import './mahsulotlar.css'
 

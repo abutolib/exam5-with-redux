@@ -139,7 +139,7 @@ const sevimliSlise = createSlice({
     },
 
     search: (state, action) => {
-      const searchedProduct = state.products.filter((item => {
+      const searchedProduct = state.products2.filter((item => {
         return item.name.toLowerCase().includes(action.payload)
       }))
       state.products = [...searchedProduct]
@@ -150,5 +150,5 @@ const sevimliSlise = createSlice({
 });
 
 
-export const { handleAddSevimli, handleDeleteSevimli, changeHeartColor, handleIncrement2, handleDecrement2, sortedIsLiked, choy, all, yog, asal, non, ziravorlar, sharbatlar, lolipoplar, tabletkalar ,search,sorted} = sevimliSlise.actions;
+export const { handleAddSevimli, handleDeleteSevimli, changeHeartColor, handleIncrement2, handleDecrement2, sortedIsLiked, all, search,sorted} = sevimliSlise.actions;
 export default sevimliSlise.reducer;
