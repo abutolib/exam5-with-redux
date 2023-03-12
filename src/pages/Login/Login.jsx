@@ -48,8 +48,8 @@ export const Login = () => {
       <form onSubmit={handleSubmit} className='login-form'>
         <label className='login-label'>
           Telefon raqam
-          <div style={{ marginTop: '10px' }}>
-            <img src={uzbflag} />
+          <div style={{ marginTop: '10px' }} className='d-flex align-items-center'>
+            <img src={uzbflag} className='d-block me-2' />
             <div className='d-flex align-items-center'>
               <p className='nomer m-0'>+998</p>
               <input ref={telRef} className='tel-input' type='tel' />
