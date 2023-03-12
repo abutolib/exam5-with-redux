@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Product } from '../../components/Product/Product'
-import { all, asal, choy, lolipoplar, non, search, sharbatlar, tabletkalar, yog, ziravorlar } from '../../redux-toolkit/sevimliSlice'
+import { all, asal, choy, lolipoplar, non, search, sharbatlar, sorted, tabletkalar, yog, ziravorlar } from '../../redux-toolkit/sevimliSlice'
 
 import './mahsulotlar.css'
 
@@ -11,7 +11,8 @@ export const Mahsulotlar = () => {
   const name = useRef()
 
   const { products } = useSelector(state => state.sevimli)
-  const { sevimli } = useSelector(state => state.sevimli)
+
+  console.log(products);
 
   const dispatch = useDispatch()
 
@@ -32,39 +33,39 @@ export const Mahsulotlar = () => {
             </div>
             <form>
               <label className='d-flex gap-2'>
-                <input type='radio' name='category' id='1'   onClick={() => dispatch(all())}   />
+                <input type='radio' name='category' id='1'  onClick={() => dispatch(all())}   />
                 Hammasi
               </label>
               <label className='d-flex gap-2'>
-                <input type='radio' name='category' id='2' onClick={() => dispatch(choy())}/>
+                <input type='radio' name='category' id='2' onClick={() => dispatch(all())}/>
                 Choy
               </label>
               <label className='d-flex gap-2'>
-                <input type='radio' name='category' id='3' onClick={() => dispatch(asal())} />
+                <input type='radio' name='category' id='3' onClick={() => dispatch(all())} />
                 Asal
               </label>
               <label className='d-flex gap-2'>
-                <input type='radio' name='category' id='4' onClick={() => dispatch(yog())} />
+                <input type='radio' name='category' id='4' onClick={() => dispatch(all())} />
                 Yog’
               </label>
               <label className='d-flex gap-2'>
-                <input type='radio' name='category' id='5' onClick={() => dispatch(non())}/>
+                <input type='radio' name='category' id='5' onClick={() => dispatch(all())}/>
                 Non
               </label>
               <label className='d-flex gap-2'>
-                <input type='radio' name='category' id='6' onClick={() => dispatch(ziravorlar())} />
+                <input type='radio' name='category' id='6' onClick={() => dispatch(all())} />
                 Ziravorlar
               </label>
               <label className='d-flex gap-2'>
-                <input type='radio' name='category' id='7' onClick={() => dispatch(sharbatlar())} />
+                <input type='radio' name='category' id='7' onClick={() => dispatch(all())} />
                 Sharbatlar
               </label>
               <label className='d-flex gap-2'>
-                <input type='radio' name='category' id='8' onClick={() => dispatch(lolipoplar())}/>
+                <input type='radio' name='category' id='8' onClick={() => dispatch(all())}/>
                 Lolipoplar
               </label>
               <label className='d-flex gap-2'>
-                <input type='radio' name='category' id='9' onClick={() => dispatch(tabletkalar())} />
+                <input type='radio' name='category' id='9' onClick={() => dispatch(all())} />
                 Tabletkalar
               </label>
             </form>

@@ -19,8 +19,15 @@ const sevimliSlise = createSlice({
         type: 'Mavjud',
         oldPrice: '17,190, uzs',
         price: 16000,
-        quantity: 1
-
+        quantity: 1,
+        choy:true,
+        asal:true,
+        yog:true,
+        non:false,
+        ziravorlar:false,
+        sharbatlar:true,
+        lolipoplar:false,
+        tabletkalar:false,
       },
       {
         id: 2,
@@ -30,8 +37,15 @@ const sevimliSlise = createSlice({
         type: 'Erkaklar kuchi',
         oldPrice: '200,190, uzs',
         price: 150000,
-        quantity: 1
-
+        quantity: 1,
+        choy:true,
+        asal:false,
+        yog:false,
+        non:false,
+        ziravorlar:true,
+        sharbatlar:true,
+        lolipoplar:false,
+        tabletkalar:true,
       },
       {
         id: 3,
@@ -41,8 +55,15 @@ const sevimliSlise = createSlice({
         type: '7pcs, Price',
         oldPrice: '17,190, uzs',
         price: 16000,
-        quantity: 1
-
+        quantity: 1,
+        choy:true,
+        asal:false,
+        yog:false,
+        non:false,
+        ziravorlar:true,
+        sharbatlar:false,
+        lolipoplar:true,
+        tabletkalar:true,
       },
       {
         id: 4,
@@ -52,21 +73,36 @@ const sevimliSlise = createSlice({
         type: 'Mavjud',
         oldPrice: '17,190, uzs',
         price: 16000,
-        quantity: 1
-
+        quantity: 1,
+        choy:false,
+        asal:true,
+        yog:false,
+        non:false,
+        ziravorlar:false,
+        sharbatlar:false,
+        lolipoplar:false,
+        tabletkalar:false,
       },
       {
         id: 5,
         isLiked: false,
         img: Rastraposha,
-        name: 'Rohat Sirop',
-        type: 'Rohat Sirop',
+        name: 'Rohat Sirop2',
+        type: 'Rohat Sirop2',
         oldPrice: '200,190, uzs',
         price: 150000,
-        quantity: 1
+        quantity: 1,
+        choy:false,
+        asal:true,
+        yog:true,
+        non:true,
+        ziravorlar:true,
+        sharbatlar:false,
+        lolipoplar:false,
+        tabletkalar:true,
 
       },
-    ]
+    ],
   }
   ,
   reducers: {
@@ -89,336 +125,21 @@ const sevimliSlise = createSlice({
       findedItem.isLiked = !findedItem.isLiked
       findedItem2.isLiked = !findedItem2.isLiked
     },
-    handleIncrement2: (state, action) => {
-      const findedItem = state.korzinka.find(item => item.id === action.payload)
-      findedItem.quantity += 1
-    },
-    handleDecrement2: (state, action) => {
-      const findedItem = state.korzinka.find(item => item.id === action.payload)
-      if (findedItem.quantity > 1) {
-        findedItem.quantity -= 1
-      }
-    },
     sortedIsLiked: (state, action) => {
       state.products[action.payload.id - 1].isLiked = !state.products[action.payload.id - 1].isLiked
     },
-    choy: (state, action) => {
-      const choy = [
-        {
-          id: 1,
-          isLiked: false,
-          img: RohatYog,
-          name: 'ROHAT Yog`i №2',
-          type: 'Mavjud',
-          oldPrice: '17,190, uzs',
-          price: 16000,
-          quantity: 1
-
-        },
-        {
-          id: 2,
-          isLiked: false,
-          img: RohatSirop,
-          name: 'Rohat Sirop',
-          type: 'Erkaklar kuchi',
-          oldPrice: '200,190, uzs',
-          price: 150000,
-          quantity: 1
-
-        },
-        {
-          id: 3,
-          isLiked: false,
-          img: Rastraposha,
-          name: 'Organic Bananas',
-          type: '7pcs, Price',
-          oldPrice: '17,190, uzs',
-          price: 16000,
-          quantity: 1
-
-        },
-      ]
-      state.products = [...choy]
-    },
-    all: (state, action) => {
-      const all = [
-        {
-          id: 1,
-          isLiked: false,
-          img: RohatYog,
-          name: 'ROHAT Yog`i №2',
-          type: 'Mavjud',
-          oldPrice: '17,190, uzs',
-          price: 16000,
-          quantity: 1
-
-        },
-        {
-          id: 2,
-          isLiked: false,
-          img: RohatSirop,
-          name: 'Rohat Sirop',
-          type: 'Erkaklar kuchi',
-          oldPrice: '200,190, uzs',
-          price: 150000,
-          quantity: 1
-
-        },
-        {
-          id: 3,
-          isLiked: false,
-          img: Rastraposha,
-          name: 'Organic Bananas',
-          type: '7pcs, Price',
-          oldPrice: '17,190, uzs',
-          price: 16000,
-          quantity: 1
-
-        },
-        {
-          id: 4,
-          isLiked: false,
-          img: RohatMen,
-          name: 'ROHAT Yog`i №22',
-          type: 'Mavjud',
-          oldPrice: '17,190, uzs',
-          price: 16000,
-          quantity: 1
-
-        },
-        {
-          id: 5,
-          isLiked: false,
-          img: Rastraposha,
-          name: 'Rohat Sirop',
-          type: 'Rohat Sirop',
-          oldPrice: '200,190, uzs',
-          price: 150000,
-          quantity: 1
-
-        },
-      ]
+    all: (state, action) => { 
+      const all = [...state.products]
       state.products = [...all]
     },
-    asal: (state, action) => {
-      const all = [
-        {
-          id: 1,
-          isLiked: false,
-          img: RohatYog,
-          name: 'ROHAT Yog`i №2',
-          type: 'Mavjud',
-          oldPrice: '17,190, uzs',
-          price: 16000,
-          quantity: 1
-
-        },
-
-        {
-          id: 4,
-          isLiked: false,
-          img: RohatMen,
-          name: 'ROHAT Yog`i №22',
-          type: 'Mavjud',
-          oldPrice: '17,190, uzs',
-          price: 16000,
-          quantity: 1
-
-        },
-        {
-          id: 5,
-          isLiked: false,
-          img: Rastraposha,
-          name: 'Rohat Sirop',
-          type: 'Rohat Sirop',
-          oldPrice: '200,190, uzs',
-          price: 150000,
-          quantity: 1
-
-        },
-      ]
-      state.products = [...all]
-    },
-    yog: (state, action) => {
-      const all = [
-        {
-          id: 1,
-          isLiked: false,
-          img: RohatYog,
-          name: 'ROHAT Yog`i №2',
-          type: 'Mavjud',
-          oldPrice: '17,190, uzs',
-          price: 16000,
-          quantity: 1
-
-        },
-        {
-          id: 5,
-          isLiked: false,
-          img: Rastraposha,
-          name: 'Rohat Sirop',
-          type: 'Rohat Sirop',
-          oldPrice: '200,190, uzs',
-          price: 150000,
-          quantity: 1
-
-        },
-      ]
-      state.products = [...all]
-    },
-    non: (state, action) => {
-      const all = [
-        {
-          id: 5,
-          isLiked: false,
-          img: Rastraposha,
-          name: 'Rohat Sirop',
-          type: 'Rohat Sirop',
-          oldPrice: '200,190, uzs',
-          price: 150000,
-          quantity: 1
-
-        },
-      ]
-      state.products = [...all]
-    },
-    ziravorlar: (state, action) => {
-      const all = [
-
-        {
-          id: 2,
-          isLiked: false,
-          img: RohatSirop,
-          name: 'Rohat Sirop',
-          type: 'Erkaklar kuchi',
-          oldPrice: '200,190, uzs',
-          price: 150000,
-          quantity: 1
-
-        },
-        {
-          id: 3,
-          isLiked: false,
-          img: Rastraposha,
-          name: 'Organic Bananas',
-          type: '7pcs, Price',
-          oldPrice: '17,190, uzs',
-          price: 16000,
-          quantity: 1
-
-        },
-
-        {
-          id: 5,
-          isLiked: false,
-          img: Rastraposha,
-          name: 'Rohat Sirop',
-          type: 'Rohat Sirop',
-          oldPrice: '200,190, uzs',
-          price: 150000,
-          quantity: 1
-
-        },
-      ]
-      state.products = [...all]
-    },
-    sharbatlar: (state, action) => {
-      const all = [
-        {
-          id: 1,
-          isLiked: false,
-          img: RohatYog,
-          name: 'ROHAT Yog`i №2',
-          type: 'Mavjud',
-          oldPrice: '17,190, uzs',
-          price: 16000,
-          quantity: 1
-
-        },
-        {
-          id: 2,
-          isLiked: false,
-          img: RohatSirop,
-          name: 'Rohat Sirop',
-          type: 'Erkaklar kuchi',
-          oldPrice: '200,190, uzs',
-          price: 150000,
-          quantity: 1
-
-        },
-        {
-          id: 3,
-          isLiked: false,
-          img: Rastraposha,
-          name: 'Organic Bananas',
-          type: '7pcs, Price',
-          oldPrice: '17,190, uzs',
-          price: 16000,
-          quantity: 1
-
-        },
-      ]
-      state.products = [...all]
-    },
-    lolipoplar: (state, action) => {
-      const all = [
-        {
-          id: 3,
-          isLiked: false,
-          img: Rastraposha,
-          name: 'Organic Bananas',
-          type: '7pcs, Price',
-          oldPrice: '17,190, uzs',
-          price: 16000,
-          quantity: 1
-
-        },
-      ]
-      state.products = [...all]
-    },
-    tabletkalar: (state, action) => {
-      const all = [
-
-        {
-          id: 2,
-          isLiked: false,
-          img: RohatSirop,
-          name: 'Rohat Sirop',
-          type: 'Erkaklar kuchi',
-          oldPrice: '200,190, uzs',
-          price: 150000,
-          quantity: 1
-
-        },
-        {
-          id: 3,
-          isLiked: false,
-          img: Rastraposha,
-          name: 'Organic Bananas',
-          type: '7pcs, Price',
-          oldPrice: '17,190, uzs',
-          price: 16000,
-          quantity: 1
-
-        },
-
-        {
-          id: 5,
-          isLiked: false,
-          img: Rastraposha,
-          name: 'Rohat Sirop',
-          type: 'Rohat Sirop',
-          oldPrice: '200,190, uzs',
-          price: 150000,
-          quantity: 1
-
-        },
-      ]
-      state.products = [...all]
+    sorted:(state,action)=>{
+      const array = state.products.filter(item => item[action.payload])
+      console.log(array);
+      state.products = [...array]
     },
 
     search: (state, action) => {
-      const searchedProduct = state.products.filter((item => {
+      const searchedProduct = state.products2.filter((item => {
         return item.name.toLowerCase().includes(action.payload)
       }))
       state.products = [...searchedProduct]
@@ -429,5 +150,5 @@ const sevimliSlise = createSlice({
 });
 
 
-export const { handleAddSevimli, handleDeleteSevimli, changeHeartColor, handleIncrement2, handleDecrement2, sortedIsLiked, choy, all, yog, asal, non, ziravorlar, sharbatlar, lolipoplar, tabletkalar ,search} = sevimliSlise.actions;
+export const { handleAddSevimli, handleDeleteSevimli, changeHeartColor, handleIncrement2, handleDecrement2, sortedIsLiked, choy, all, yog, asal, non, ziravorlar, sharbatlar, lolipoplar, tabletkalar ,search,sorted} = sevimliSlise.actions;
 export default sevimliSlise.reducer;
